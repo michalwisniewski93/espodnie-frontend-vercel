@@ -251,7 +251,7 @@ const filtredProducts = selectedCategory ? products.filter(product => product.ca
         <div className="productsPresentationList">
             {filtredProducts.map(product => (<div className="productCard" key={product._id}>
                 <h2 className="productName">{product.productname}</h2>
-                <img src={`http://espodnie-backend-vercel.vercel.app${product.imageurl}`} alt={product.productname}/>
+                <img src={`https://espodnie-backend-vercel.vercel.app/images/${product.imageurl}`} alt={product.productname}/>
                 <h6 className="productDescription">{product.description}</h6>
                 <h6 className="productPrice">{product.price} PLN</h6>
                 <h6 className="productStorePieces">{product.storepieces > 0 ? <span className="available">Dostępny</span> : <span className="outOfStock">Wyprzedany</span>}</h6>
