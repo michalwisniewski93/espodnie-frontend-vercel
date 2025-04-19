@@ -29,7 +29,7 @@ const [editingId, setEditingId] = useState(null)
 
 
 useEffect(() => {
-    axios.get('http://localhost:5000/login')
+    axios.get('https://espodnie-backend-vercel.vercel.app/login')
     .then((response) => setReceivedData(response.data))
     .catch((err) => console.log('Wystąpił bład podczas pobierania danych logowania, błąd: ' + err))
 }, [])
@@ -46,7 +46,7 @@ const  handleSubmit = (e) => {
             setPasswordText(rd.password)
             setEditingId(rd._id)
 
-             axios.put(`http://localhost:5000/login/${rd._id}`, {login, password, permission})
+             axios.put(`https://espodnie-backend-vercel.vercel.app/login/${rd._id}`, {login, password, permission})
             .then((response) => {
                     setReceivedData(receivedData.map(rd => rd._id === rd._id ? response.data : rd));
                     

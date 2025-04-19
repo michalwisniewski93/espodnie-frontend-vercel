@@ -52,13 +52,13 @@ const navigate = useNavigate()
    }
 
    useEffect(() => {
-    axios.get('http://localhost:5000/productcategories')
+    axios.get('https://espodnie-backend-vercel.vercel.app/productcategories')
     .then((response) => setFetchedCategories(response.data))
     .catch((err) => console.log('error fetching product categories, error: ' + err))
    }, [])
 
    useEffect(() => {
-    axios.get('http://localhost:5000/products')
+    axios.get('https://espodnie-backend-vercel.vercel.app/products')
     .then((response) => setProducts(response.data))
     .catch((err) => console.log('error fetching products, error: ' + err))
    }, [])
@@ -73,7 +73,7 @@ const navigate = useNavigate()
     const storepieces = storePieces
     if (imageUrl !== '') {
      
-      axios.post("http://localhost:5000/products", {productname, price, description, category, imageurl, storepieces})
+      axios.post("https://espodnie-backend-vercel.vercel.app/products", {productname, price, description, category, imageurl, storepieces})
         .then(response => setProducts([...products, response.data]))
         .catch(err => console.error('Error adding products', err));
     }
@@ -117,7 +117,7 @@ const navigate = useNavigate()
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('https://espodnie-backend-vercel.vercel.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -146,7 +146,7 @@ const navigate = useNavigate()
   }
 
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/products/${id}`)
+    axios.delete(`https://espodnie-backend-vercel.vercel.app/products/${id}`)
           .then(() => setProducts(products.filter(product => product._id !== id)))
           .catch((err) => console.error("Error deleting product:", err));
   }
@@ -185,7 +185,7 @@ const navigate = useNavigate()
     let uri = ''
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('https://espodnie-backend-vercel.vercel.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -216,7 +216,7 @@ const navigate = useNavigate()
        
     
     
-        axios.put(`http://localhost:5000/products/${editingId}`, {productname, price, description, category, imageurl, storepieces})
+        axios.put(`https://espodnie-backend-vercel.vercel.app/products/${editingId}`, {productname, price, description, category, imageurl, storepieces})
        .then((response) => {
                setProducts(products.map(product => product._id === editingId ? response.data : product));
                setEditingId(null); // Zakończ edycję
@@ -323,7 +323,7 @@ const navigate = useNavigate()
             <h4>kategoria: {product.category}</h4>
             <h4>stan na magazynie (szt.): {product.storepieces}</h4>
             <h4>zdjęcie produktu:</h4>
-            <img src={`http://localhost:5000${product.imageurl}`} alt={product.productname} />
+            <img src={`https://espodnie-backend-vercel.vercel.app${product.imageurl}`} alt={product.productname} />
             <button onClick={() => handleDelete(product._id)}>Usuń produkt</button><button onClick={() => handleEditProduct(product._id, product.productname, product.description, product.price, product.category, product.storepieces, product.imageurl)}>Edytuj produkt</button>
           </div>))}
        </div>

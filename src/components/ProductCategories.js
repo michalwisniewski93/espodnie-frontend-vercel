@@ -18,7 +18,7 @@ const [editingId, setEditingId] = useState('')
 
 
 useEffect(() => {
-    axios.get('http://localhost:5000/productcategories')
+    axios.get('https://espodnie-backend-vercel.vercel.app/productcategories')
     .then((response) => setProductCategories(response.data))
     .catch((err) => console.log('error fetching product categories, error: ' + err))
 }, [])
@@ -39,7 +39,7 @@ useEffect(() => {
 
 
    const handleDelete = (id) => {
-    axios.delete(`http://localhost:5000/productcategories/${id}`)
+    axios.delete(`https://espodnie-backend-vercel.vercel.app/productcategories/${id}`)
     .then(() => setProductCategories(productCategories.filter(category => category._id !== id)))
     .catch((err) => console.error("Error deleting product category:", err));
    }
@@ -61,7 +61,7 @@ useEffect(() => {
     const name = newProductCategory
    
 
-     axios.post("http://localhost:5000/productcategories", {name})
+     axios.post("https://espodnie-backend-vercel.vercel.app/productcategories", {name})
             .then((response => setProductCategories([...productCategories, response.data])))
             .catch(err => {
                 console.error('Error adding product categories', err)
@@ -77,7 +77,7 @@ useEffect(() => {
     const name = editingCategory
     const id = editingId
 
-    axios.put(`http://localhost:5000/productcategories/${id}`, {name})
+    axios.put(`https://espodnie-backend-vercel.vercel.app/productcategories/${id}`, {name})
     .then((response) => {
             setProductCategories(productCategories.map(category => category._id === id ? response.data : category));
            })

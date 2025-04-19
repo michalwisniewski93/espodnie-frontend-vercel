@@ -83,15 +83,15 @@ const handleLogIn = () => {
 }
 
 useEffect(() => {
-    axios.get('http://localhost:5000/products')
+    axios.get('https://espodnie-backend-vercel.vercel.app/products')
     .then((response) => setProducts(response.data))
     .catch((err) => console.log('error fetching products, error: ' + err))
 
-    axios.get('http://localhost:5000/productcategories')
+    axios.get('https://espodnie-backend-vercel.vercel.app/productcategories')
     .then((response) => setProductCategories(response.data))
     .catch((err) => console.log('error fetching product categories, error: ' + err))
 
-    axios.get('http://localhost:5000/sites')
+    axios.get('https://espodnie-backend-vercel.vercel.app/sites')
     .then((response) => setSites(response.data))
     .catch((err) => console.log('error fetching sites, error: ' + err))
 
@@ -99,7 +99,7 @@ useEffect(() => {
 
 
 useEffect(() => {
-    axios.get('http://localhost:5000/favourites')
+    axios.get('https://espodnie-backend-vercel.vercel.app/favourites')
     .then((response) => setFavourites(response.data))
     .catch((err) => console.log('error fetching favourites, error: ' + err))
    
@@ -133,7 +133,7 @@ const handleBuyNow = (productname, imageurl, description, price, storepieces) =>
     const user = userLogged
 
 
-    axios.put(`http://localhost:5000/baskets/${boughtProductsId}`, {user, boughtProducts })
+    axios.put(`https://espodnie-backend-vercel.vercel.app/baskets/${boughtProductsId}`, {user, boughtProducts })
     .then((response) => console.log('dodano poprawnie'))
     .catch((err) => console.log('error updating baskets ' + err))
 }
@@ -175,7 +175,7 @@ const filtredProducts = selectedCategory ? products.filter(product => product.ca
         
 
         {favourites.filter(fv => fv._id === id).map(favourite => 
-         favourite.favourites.map((fav, index) =>  <div className="productCard" key={index}><h2 className="productName">{fav.productname}</h2><img src={`http://localhost:5000${fav.imageurl}`} alt={fav.imageurl}/><h6 className="productDescription">{fav.description}</h6><h6 className="productPrice">{fav.price} PLN</h6><h6 className="productStorePieces">{fav.storepieces > 0 ? <span className="available">Dostępny</span> : <span className="outOfStock">Wyprzedany</span>}</h6><button className="buyNow" onClick={() => handleBuyNow(fav.productname, fav.imageurl, fav.description, fav.price, fav.storepieces)}>Kup teraz</button></div>)
+         favourite.favourites.map((fav, index) =>  <div className="productCard" key={index}><h2 className="productName">{fav.productname}</h2><img src={`https://espodnie-backend-vercel.vercel.app${fav.imageurl}`} alt={fav.imageurl}/><h6 className="productDescription">{fav.description}</h6><h6 className="productPrice">{fav.price} PLN</h6><h6 className="productStorePieces">{fav.storepieces > 0 ? <span className="available">Dostępny</span> : <span className="outOfStock">Wyprzedany</span>}</h6><button className="buyNow" onClick={() => handleBuyNow(fav.productname, fav.imageurl, fav.description, fav.price, fav.storepieces)}>Kup teraz</button></div>)
         )}
 
        

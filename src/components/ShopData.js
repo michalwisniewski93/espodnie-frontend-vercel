@@ -24,7 +24,7 @@ const [visibilityEditForm, setVisibilityEditForm] = useState(false)
 const [editingId, setEditingId] = useState()
 
 useEffect(() => {
-    axios.get('http://localhost:5000/shopdata')
+    axios.get('https://espodnie-backend-vercel.vercel.app/shopdata')
     .then((response) => setReceivedData(response.data))
     .catch((err) => console.log('error fetching shop data, error: ' + err))
 }, [])
@@ -67,7 +67,7 @@ useEffect(() => {
     const companyemail = companyEmail
     const companyphonenumber = companyPhoneNumber
 
-    axios.put(`http://localhost:5000/shopdata/${editingId}`, {shoptitle, companyname, companystreet, companypostcode, companycity, companynip, companyemail, companyphonenumber})
+    axios.put(`https://espodnie-backend-vercel.vercel.app/shopdata/${editingId}`, {shoptitle, companyname, companystreet, companypostcode, companycity, companynip, companyemail, companyphonenumber})
    .then((response) => {
         setReceivedData(receivedData.map(rd => rd._id === editingId ? response.data : rd));
         setShopTitle('')

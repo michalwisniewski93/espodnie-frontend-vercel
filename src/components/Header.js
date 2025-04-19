@@ -25,7 +25,7 @@ const Header = () => {
       }, [boughtProducts]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/shopdata')
+        axios.get('https://espodnie-backend-vercel.vercel.app/shopdata')
         .then((response) => setReceivedData(response.data))
         .catch((err) => console.log('error fetching shop data, error: ' + err))
     })

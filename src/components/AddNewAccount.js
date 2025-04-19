@@ -85,7 +85,7 @@ const handleSubmit = (e) => {
         setCompanyRegon(null)
     }
     
-    axios.post("http://localhost:5000/customers", {name, surname, street, postcode, city, companyname, companystreet, companypostcode, companycity, email, invoice, login, newsletter, password, phonenumber, regulations, companynip, companyregon})
+    axios.post("https://espodnie-backend-vercel.vercel.app/customers", {name, surname, street, postcode, city, companyname, companystreet, companypostcode, companycity, email, invoice, login, newsletter, password, phonenumber, regulations, companynip, companyregon})
         .then((response => setCustomers([...customers, response.data])))
         .catch(err => {
             console.error('Error adding customers', err)
@@ -99,7 +99,7 @@ const handleSubmit = (e) => {
     console.log(user)
     console.log(favourites)
 
-    axios.post('http://localhost:5000/favourites', {user, favourites})
+    axios.post('https://espodnie-backend-vercel.vercel.app/favourites', {user, favourites})
     .then((response => setFavourites([...favourites, response.data])))
     .catch(err => {
             console.error('Error adding favourites', err)
@@ -107,7 +107,7 @@ const handleSubmit = (e) => {
         })
 
 
-        axios.post('http://localhost:5000/baskets', {user, boughtProducts})
+        axios.post('https://espodnie-backend-vercel.vercel.app/baskets', {user, boughtProducts})
         .then((response => setBaskets([...baskets, response.data])))
         .catch(err => {
                 console.error('Error adding baskets', err)

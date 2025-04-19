@@ -39,7 +39,7 @@ const navigate = useNavigate()
 
 
    useEffect(() => {
-    axios.get('http://localhost:5000/sites')
+    axios.get('https://espodnie-backend-vercel.vercel.app/sites')
     .then((response) => setSites(response.data))
     .catch((err) => console.log('error fetching sites, error: ' + err))
    }, [])
@@ -55,7 +55,7 @@ const navigate = useNavigate()
    }
 
    const handleDelete = (id) => {
-     axios.delete(`http://localhost:5000/sites/${id}`)
+     axios.delete(`https://espodnie-backend-vercel.vercel.app/sites/${id}`)
           .then(() => setSites(sites.filter(site => site._id !== id)))
           .catch((err) => console.error("Error deleting site:", err));
    }
@@ -70,7 +70,7 @@ const navigate = useNavigate()
   
 
     //post 
-     axios.post("http://localhost:5000/sites", {name, content, url})
+     axios.post("https://espodnie-backend-vercel.vercel.app/sites", {name, content, url})
                 .then((response => setSites([...sites, response.data])))
                 .catch(err => {
                     console.error('Error adding sites', err)
@@ -92,7 +92,7 @@ const navigate = useNavigate()
 
     // tu będie put
 
-    axios.put(`http://localhost:5000/sites/${id}`, {name, content, url})
+    axios.put(`https://espodnie-backend-vercel.vercel.app/sites/${id}`, {name, content, url})
        .then((response) => {
             setSites(sites.map(site => site._id === id ? response.data : site));
             

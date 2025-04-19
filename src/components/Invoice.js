@@ -24,7 +24,7 @@ const Invoice = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/shopdata')
+        axios.get('https://espodnie-backend-vercel.vercel.app/shopdata')
         .then((response) => setShopData(response.data))
         .catch((err) => console.log('error fetching shop data, error: ' + err))
     }, [])
@@ -62,7 +62,7 @@ const Invoice = () => {
             <div className="boughtProductsAtInvoice">
             {invoicePresentationBoughtProducts.map(invoice => (
                 <div className="productItemAtInvoice">
-                <div className="productThumbnailAtInvoice"><img src={`http://localhost:5000/${invoice.imageurl}`}/></div>
+                <div className="productThumbnailAtInvoice"><img src={`https://espodnie-backend-vercel.vercel.app/${invoice.imageurl}`}/></div>
                 <div className="productInfoAtInvoice">
                     <h4>{invoice.productname}</h4>
                     <h5>Cena brutto: {invoice.price.toFixed(2)} zł</h5>

@@ -38,7 +38,7 @@ const handleLogOut = () => {
    }
 
    useEffect(() => {
-    axios.get('http://localhost:5000/invoices')
+    axios.get('https://espodnie-backend-vercel.vercel.app/invoices')
     .then((response) => setInvoices(response.data))
     .catch((err) => console.log('error fetching invoices, error: ' + err))
    },[])
@@ -83,7 +83,7 @@ const handleLogOut = () => {
           
            {/* Drugi map - lista produktów z tego zamówienia */}
            {invoice.boughtProducts.map(bp => (
-             <div key={bp.id} className="boughtProductsInOrder"><div className="productThumbnail"><img src={`http://localhost:5000/${bp.imageurl}`}/></div><div className="productInfoOrder"><h3>{bp.productname}</h3><h3>Cena: {bp.price} PLN</h3></div></div>
+             <div key={bp.id} className="boughtProductsInOrder"><div className="productThumbnail"><img src={`https://espodnie-backend-vercel.vercel.app/${bp.imageurl}`}/></div><div className="productInfoOrder"><h3>{bp.productname}</h3><h3>Cena: {bp.price} PLN</h3></div></div>
            ))}
          </div>
        )).reverse()}

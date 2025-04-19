@@ -16,7 +16,7 @@ const LogInUser = () => {
 
 
 useEffect(() => {
-    axios.get('http://localhost:5000/customers')
+    axios.get('https://espodnie-backend-vercel.vercel.app/customers')
     .then((response) => setCustomers(response.data))
     .catch((err) => console.log('error fetching customers, error: ' + err))
 }, [])
@@ -76,7 +76,7 @@ const handleLogIn = (e) => {
         
 
 
-        axios.get('http://localhost:5000/favourites')
+        axios.get('https://espodnie-backend-vercel.vercel.app/favourites')
   .then(response => {
     const allFavourites = response.data;
    
@@ -97,7 +97,7 @@ const handleLogIn = (e) => {
 
 
 
-  axios.get('http://localhost:5000/baskets')
+  axios.get('https://espodnie-backend-vercel.vercel.app/baskets')
   .then(response => {
     const allBaskets = response.data;
    

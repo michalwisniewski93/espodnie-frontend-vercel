@@ -73,7 +73,7 @@ const Basket = () => {
 
         
         
-        axios.post("http://localhost:5000/orders", {customername, customersurname, customerstreet, customerpostcode, customercity, customercompanyname, customercompanystreet, customercompanypostcode, customercompanycity, customeremail, customerinvoice, customerlogin, customernewsletter, customerpassword, customerphonenumber, customerregulations, customercompanynip, customercompanyregon, boughtProducts, date, amount})
+        axios.post("https://espodnie-backend-vercel.vercel.app/orders", {customername, customersurname, customerstreet, customerpostcode, customercity, customercompanyname, customercompanystreet, customercompanypostcode, customercompanycity, customeremail, customerinvoice, customerlogin, customernewsletter, customerpassword, customerphonenumber, customerregulations, customercompanynip, customercompanyregon, boughtProducts, date, amount})
         .then((response => setOrders([...orders, response.data])))
         .catch(err => console.error('Error adding orders', err))
         navigate('/order-completed')
@@ -87,7 +87,7 @@ const Basket = () => {
              <h1>Koszyk <FaShoppingCart size={24} color="#333" /></h1>
              <div className="productsInBasketPresentation">
              {isUserLogged ? boughtProducts.map(boughtProduct => (<div className="productInBasketItem" key={boughtProduct.id}>
-                <div className="productImageThumbnail"><img src={`http://localhost:5000${boughtProduct.imageurl}`} alt={boughtProduct.productname}/></div>
+                <div className="productImageThumbnail"><img src={`https://espodnie-backend-vercel.vercel.app${boughtProduct.imageurl}`} alt={boughtProduct.productname}/></div>
                 <div className="productData">
                 <h3>{boughtProduct.productname}</h3>
                 <h4>cena: {boughtProduct.price} PLN</h4>

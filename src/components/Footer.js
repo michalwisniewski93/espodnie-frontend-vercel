@@ -21,15 +21,15 @@ const changeActiveSiteContent = (content) => dispatch({type: 'CHANGE_ACTIVE_SITE
 const navigate = useNavigate()
 
 useEffect(() => {
-    axios.get('http://localhost:5000/shopdata')
+    axios.get('https://espodnie-backend-vercel.vercel.app/shopdata')
     .then((response) => setReceivedData(response.data))
     .catch((err) => console.log('error fetching shop data, error: ' + err))
 
-    axios.get('http://localhost:5000/productcategories')
+    axios.get('https://espodnie-backend-vercel.vercel.app/productcategories')
     .then((response) => setProductCategories(response.data))
     .catch((err) => console.log('error fetching product categories, error: ' + err))
 
-    axios.get('http://localhost:5000/sites')
+    axios.get('https://espodnie-backend-vercel.vercel.app/sites')
     .then((response) => setSites(response.data))
     .catch((err) => console.log('error fetching sites, error: ' + err))
 }, [])

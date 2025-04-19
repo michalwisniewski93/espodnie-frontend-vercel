@@ -12,7 +12,7 @@ const Clients = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/customers')
+        axios.get('https://espodnie-backend-vercel.vercel.app/customers')
         .then((response) => setCustomers(response.data))
         .catch((err) => console.log('error fetching customers, error: ' + err))
     }, [])
@@ -36,7 +36,7 @@ const navigate = useNavigate()
 
    const handleDeleteCustomer = (id) => {
 
-    axios.delete(`http://localhost:5000/customers/${id}`)
+    axios.delete(`https://espodnie-backend-vercel.vercel.app/customers/${id}`)
       .then(() => setCustomers(customers.filter(customer => customer._id !== id)))
       .catch((err) => console.error("Error deleting customer:", err));
 
